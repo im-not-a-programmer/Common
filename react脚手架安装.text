@@ -1,0 +1,9 @@
+npm install dva-cli -g                          安装dva脚手架
+dva new todo-list                               创建新应用
+npm install antd babel-plugin-import --save     使用antd
+dva g route List                                定义路由使用dva创建
+
+
+
+npm install -g create-react-app                 安装react脚手架工具
+create-react-app my-app                         生成一个基于webpack的项目
