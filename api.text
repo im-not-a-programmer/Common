@@ -9,11 +9,14 @@ http://www.cnblogs.com/mybky/p/7600092.html                                     
 https://www.npmjs.com/package/vue-lazyload                                              //lazyLoad
 https://github.com/wangdahoo/vue-scroller?utm_source=tuicool&utm_medium=referral        //scroll 
 https://www.npmjs.com/package/vue-infinite-scroll                                       //scroll 
+https://www.ctolib.com/happy-js-vue-happy-scroll.html#articleHeader1                    //scroll
 http://vue.ydui.org/                                                                    //ydui-vue
 https://github.com/F-loat/vue-simplemde                                                 //vue 富文本编辑器    
 
+https://segmentfault.com/a/1190000011878086                                             //如何让vue项目支持typeScript
+http://www.sohunjug.com/2016/09/13/nodejs-restful-gulp/                                 //node.js typescript配置
 
-https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html                    //移动端滚动插件.
+https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html                    //better-scroll
 http://www.ydui.org/                                                                    //ydui-jquery
 https://github.com/zymseo/VueNode                                                       //node + vue
 
@@ -41,7 +44,6 @@ http://www.hubwiz.com/course/543e1a4f032c7816c0d5dfa1/                          
 http://elemefe.github.io/cooking/                                                       //基于webpack的自动化构建工具
 http://tool.chinaz.com/tools/unicode.aspx                                               //编码转换
                                    
- 
 https://doc.react-china.org/                                                            //react中文网
 http://reactnative.cn/                                                                  //react native
 http://reacttraining.cn/web/guides/quick-start                                          //react-router
@@ -52,11 +54,9 @@ http://blog.csdn.net/qq_31655965/article/details/72716557                       
 
 http://www.nodeclass.com/api/mongoose.html                                              //mongoose API
 http://javascript.ruanyifeng.com/nodejs/express.html#toc3                               //express框架
-https://www.cnblogs.com/zhongweiv/p/mongoose.html#mg_install                            //node 别人的学习笔记 没事借鉴借鉴
 http://www.haosql.com/                                                                  //数据库
 http://www.w3school.com.cn/sql/sql_insert.asp                                           //SQL速查
+https://github.com/demopark/sequelize-docs-Zh-CN/blob/master/getting-started.md         //mySQL 第三方库
 
 
-
-https://juejin.im/welcome/frontend                                                      //掘金网-IT社区
-http://maxogden.github.io/slides/nodepdx/index.html                                     //见过立体的博客吗？可以走路可以跳  那快去看看吧
+http://www.haorooms.com/                            //博客

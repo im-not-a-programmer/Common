@@ -24,6 +24,11 @@ const myRegExp = {
             return false;
         }
     },
+    //验证姓名
+    isChinaName: (str) => {
+        let pattern = /^[\u4E00-\u9FA5]{1,6}$/;
+        return pattern.test(name);
+    },
     // 检查字符串是否为合法Email地址
     isEmail: (str) => {
         const reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
@@ -125,8 +130,8 @@ const myRegExp = {
     },
     //检查是否是5-20字以字母开头、可带数字、“_”、“.”
     isRegisterUserName: (str) => {
-        const patrn=/^[a-zA-Z]{1}([a-zA-Z0-9]|[._+]){4,19}$/;  
-        if (patrn.exec(s)){
+        const patrn = /^[a-zA-Z]{1}([a-zA-Z0-9]|[._+]){4,19}$/;
+        if (patrn.exec(s)) {
             console.log('isRegisterUserName认证成功')
             return true;
         } else {

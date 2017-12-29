@@ -51,6 +51,11 @@ var myRegExp = {
         var reg = /^\s+|\s+$/g;
         return str.replace(reg, '');
     },
+    //验证姓名
+    isChinaName: function(str) {
+        let pattern = /^[\u4E00-\u9FA5]{1,6}$/;
+        return pattern.test(name);
+    },
     // 检查字符串是否存在中文
     isChinese: function(str) {
         var reg = /[\u4e00-\u9fa5]/gm;
