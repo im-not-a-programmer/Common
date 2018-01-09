@@ -57,10 +57,9 @@ gulp.task('server', function() {
 
 gulp.task('dev', function() {
     gulp.start('server');
-})
+});
 
 /*上线环境配置*/
-
 //图片压缩任务,支持JPEG、PNG及GIF文件;
 gulp.task('img:build', function() {
     var jpgmin = imageminJpegRecompress({
@@ -90,20 +89,19 @@ gulp.task('img:build', function() {
     return gulp.src('src/asset/img/' + '*.*')
 
     .pipe(imagemin({
-
             use: [jpgmin, pngmin]
-
         }))
         .pipe(gulp.dest('dist/asset/img'));
 });
+
 //打包js，压缩，生成hash
 gulp.task('js:build', function() {
     return gulp.src('src/asset/js/*.js')
-        .pipe(rev())
         .pipe(gulp.dest('dist/asset/js'))
         .pipe(rev.manifest())
         .pipe(gulp.dest('hash/js'))
 });
+
 //打包css,压缩，生成hash
 gulp.task('css:build', function() {
     return gulp.src('src/asset/css/*.less')
@@ -111,31 +109,29 @@ gulp.task('css:build', function() {
         .pipe(concat('style.css'))
         .pipe(cssMin())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(rev())
         .pipe(gulp.dest('dist/asset/css/'))
         .pipe(rev.manifest())
         .pipe(gulp.dest('hash/css'))
 });
+
 //打包html，匹配hash
 gulp.task('html:build', function() {
     return gulp.src(['hash/**/*.json', 'src/*.html'])
         .pipe(revCollector())
         .pipe(gulp.dest('dist'))
-})
+});
 
 //公用组件
 gulp.task('components:build', function() {
     return gulp.src('./src/components/*.html')
         .pipe(gulp.dest('dist/components'))
-})
+});
 
 gulp.task("clean", function() {
     return gulp.src(['dist', 'hash'], { read: false }) //src的第二个参数的{read:false}，是不读取文件加快程序。
         .pipe(clean())
-
-})
+});
 
 gulp.task('build', function() {
     runSequence('clean', 'components:build', 'img:build', 'js:build', 'css:build', 'html:build')
-
-})
+});
