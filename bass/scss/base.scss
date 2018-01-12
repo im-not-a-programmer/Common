@@ -1,0 +1,199 @@
+/**********颜色**************
+*
+*   success 安全色
+*   danger  危险色
+*   warning 警告色
+*
+**********鼠标************
+*   allowed 禁止
+*   pointer 手型
+*
+*/
+
+$baseSize:12px;
+$baseColor:#333;
+$baseBg:#fff;
+$baseLineHeight:100%;
+$baseFamily:'微软雅黑';
+$baseMragin:0 auto;
+$basePadding:0;
+$baseBoxWidth:1200px;
+$baseBoxHeight:50px;
+$baseBorderSize:1px;
+$baseBorderColor:#eee;
+$success:#337ab7;
+$danger:#d9534f;
+$warning:#f0ad4e;
+$allowed:not-allowed;
+$pointer:pointer;
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-family: '微软雅黑';
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+    }
+}
+
+.container {
+    width: $baseBoxWidth;
+    margin: 0 auto;
+}
+
+//鼠标
+@mixin prohibit($style:$pointer) {
+    cursor: $style;
+}
+
+//文字对其方式
+@mixin text-align($style:center) {
+    text-align: $style;
+}
+
+@mixin display($style:block) {
+    display: $style;
+}
+
+//flxe X轴对其方式 flex-start | flex-end | center | baseline | stretch;
+@mixin align-items($style:center) {
+    align-items: $style;
+}
+
+//justify-content Y轴对其方式 flex-start | flex-end | center | space-between | space-around;
+@mixin justify-content($style:space-between) {
+    justify-content: $style;
+}
+
+//内容显示 or 隐藏
+@mixin hidden($style:visible) {
+    visibility: $style;
+}
+
+//单行文本溢出隐藏
+@mixin text-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//多行文本溢出隐藏
+@mixin text-hidden-all($style:2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $style;
+    overflow: hidden;
+}
+
+//baseBox
+@mixin baseBox($width:$baseBoxWidth, $height:$baseBoxHeight, $background:$baseBg, $padding:$basePadding, $margin:$baseMragin) {
+    width: $width;
+    height: $height;
+    background: $background;
+    margin: $margin;
+    padding: $padding;
+}
+
+//baseFont
+@mixin baseFont($size:$baseSize, $color:$baseColor, $family:$baseFamily, $lineHeight:$baseLineHeight) {
+    font-size: $size;
+    font-family: $baseFamily;
+    color: $color;
+    line-height: $lineHeight;
+}
+
+//opacity
+@mixin opacity($opacity:50) {
+    opacity: $opacity;
+    filter: alpha(opacity=$opacity);
+}
+
+//border
+@mixin border($right:$baseBorderSize, $left:$baseBorderSize, $top:$baseBorderSize, $bottom:$baseBorderSize, $color:$baseBorderColor) {
+    border-right: $right;
+    border-left: $left;
+    border-top: $top;
+    border-bottom: $bottom;
+    border-color: $baseBorderColor;
+}
+
+//radius
+@mixin border-radius($leftTop:50%, $rightTop:50%, $leftTop:50%, $leftBottom:50%) {
+    border-radius: $leftTop $rightTop $leftTop $leftBottom;
+}
+
+//元素居中显示
+@mixin box-center ($w:100px, $h:100px) {
+    width: $w;
+    height: $h;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//btn 冲击波效果
+@mixin btnWave($background:rgba(31, 91, 147, 0.8), $isBackground:rgba(31, 91, 147, 1), $activeBg:rgba(255, 255, 255, 0.6), $w:100px, $h:40px, $color:#fff, $option:1, $timer:.4s, $radius:5px) {
+    position: relative;
+    display: block;
+    width: $w;
+    height: $h;
+    overflow: hidden;
+    line-height: $h;
+    border-radius: $radius;
+    background: $background;
+    color: $color;
+    text-align: center;
+    transition: all $timer;
+    &:hover {
+        background: $isBackground;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200%;
+        height: 400%;
+        background: $activeBg;
+        border-radius: 50%;
+        transition: all 1s;
+        @include opacity(0);
+    }
+    &:active:after {
+        width: 0;
+        height: 0;
+        transition-duration: 0s;
+        @include opacity($option);
+    }
+}
+
+//自定义滚动条
+@mixin scrollBar($w:8px, $h:8px, $bg:rgba(0, 0, 0, .5), $color:#ccc) {
+    box-sizing: border-box;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        width: $w;
+        height: $h;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $bg;
+        border-radius: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: $color;
+        border-radius: 6px;
+    }
+}
