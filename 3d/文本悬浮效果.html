@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    html,
+    body {
+        padding: 0px;
+        margin: 0px;
+        background: -webkit-linear-gradient(#000, #222);
+        background: linear-gradient(#000, #222);
+        font-family: 'Enriqueta', serif;
+        color: #FFF;
+        height: 100%;
+    }
+    
+    body {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    
+    .container {
+        max-width: 300px;
+        width: 200px;
+        margin: auto;
+    }
+    
+    .links {
+        font-size: 24px;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1em;
+        white-space: nowrap;
+        width: 100%;
+        -webkit-transform: translate3D(0, 0, 0);
+        transform: translate3D(0, 0, 0);
+    }
+    
+    .link {
+        position: relative;
+        height: 2em;
+        line-height: 0.9em;
+        width: 0%;
+        border-top: 0.05em solid transparent;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .link:hover,
+    .link.demo {
+        border-top: 0.05em solid GOLD;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .link:after,
+    .link:before {
+        content: attr(data-display);
+        position: absolute;
+        top: 0em;
+        left: 1em;
+        width: auto;
+        height: 1em;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        overflow: hidden;
+        color: transparent;
+    }
+    
+    .link:before {
+        text-shadow: 0px 0.5em #FFF;
+        top: -0.5em;
+    }
+    
+    .link:after {
+        top: 0.5em;
+        text-shadow: 0px -0.5em #FFF;
+    }
+    
+    .link:hover:before,
+    .link.demo:before {
+        text-shadow: 0px 0.5em GOLD;
+        left: 1.25em;
+    }
+    
+    .link:hover:after,
+    .link.demo:after {
+        text-shadow: 0px -0.5em GOLD;
+        left: 0.75em;
+    }
+    
+    @-webkit-keyframes test {
+        0% {
+            box-shadow: 60.66823vw 288.66453vh 0px white, 1.64128vw 377.18888vh 0px white, 24.53243vw 188.92907vh 0px white, 93.27198vw 145.09432vh 0px white, 61.11078vw 207.56025vh 0px white, 29.65153vw 354.64845vh 0px white, 76.60006vw 287.43528vh 0px white, 52.52515vw 213.48378vh 0px white, 44.28761vw 192.91621vh 0px white, 85.74565vw 234.08187vh 0px white, 76.77162vw 110.93251vh 0px white, 88.56691vw 109.71026vh 0px white, 88.10048vw 228.23535vh 0px white, 17.16992vw 285.38962vh 0px white, 17.01185vw 376.34634vh 0px white, 18.7567vw 315.02193vh 0px white, 39.08284vw 223.10748vh 0px white, 64.17192vw 186.65344vh 0px white, 52.17672vw 319.63724vh 0px white, 83.53883vw 176.3482vh 0px white;
+        }
+        10% {
+            box-shadow: 60.66823vw 288.66453vh 0px white, 1.64128vw 377.18888vh 0px white, 24.53243vw 188.92907vh 0px white, 93.27198vw 145.09432vh 0px white, 61.11078vw 207.56025vh 0px white, 29.65153vw 354.64845vh 0px white, 76.60006vw 287.43528vh 0px white, 52.52515vw 213.48378vh 0px white, 44.28761vw 192.91621vh 0px white, 85.74565vw 234.08187vh 0px white, 76.77162vw 110.93251vh 0px white, 88.56691vw 109.71026vh 0px white, 88.10048vw 228.23535vh 0px white, 17.16992vw 285.38962vh 0px white, 17.01185vw 376.34634vh 0px white, 18.7567vw 315.02193vh 0px white, 39.08284vw 223.10748vh 0px white, 64.17192vw 186.65344vh 0px white, 52.17672vw 319.63724vh 0px white, 83.53883vw 176.3482vh 0px white;
+        }
+        20% {
+            box-shadow: 61.85082vw 241.32247vh 0px white, 2.42398vw 306.59971vh 0px white, 25.34899vw 143.19376vh 0px white, 92.57701vw 80.75478vh 0px white, 62.7111vw 158.63392vh 0px white, 30.49218vw 277.85989vh 0px white, 76.47937vw 219.59376vh 0px white, 52.45831vw 163.61186vh 0px white, 45.78465vw 131.30796vh 0px white, 84.9185vw 163.3857vh 0px white, 77.23597vw 57.60818vh 0px white, 88.71379vw 38.37191vh 0px white, 89.906vw 184.99642vh 0px white, 17.07447vw 211.38vh 0px white, 16.85617vw 333.96474vh 0px white, 18.11048vw 253.56968vh 0px white, 38.21928vw 152.47821vh 0px white, 63.93393vw 137.43539vh 0px white, 51.2234vw 246.63793vh 0px white, 82.78916vw 96.63657vh 0px white;
+        }
+        30% {
+            box-shadow: 63.03342vw 193.9804vh 0px white, 3.20667vw 236.01054vh 0px white, 26.16554vw 97.45844vh 0px white, 91.88204vw 16.41523vh 0px white, 64.31142vw 109.70759vh 0px white, 29.65153vw 201.07132vh 0px white, 76.35868vw 151.75225vh 0px white, 52.39147vw 113.73994vh 0px white, 47.28169vw 69.6997vh 0px white, 84.09134vw 92.68953vh 0px white, 77.70033vw 4.28385vh 0px white, 88.86066vw -32.96644vh 0px white, 91.71152vw 141.75748vh 0px white, 16.97903vw 137.37039vh 0px white, 16.70048vw 291.58314vh 0px white, 18.7567vw 192.11743vh 0px white, 37.35573vw 81.84894vh 0px white, 64.17192vw 88.21734vh 0px white, 50.27008vw 173.63862vh 0px white, 82.03949vw 16.92493vh 0px white;
+        }
+        40% {
+            box-shadow: 64.21601vw 146.63834vh 0px white, 3.98937vw 165.42137vh 0px white, 25.34899vw 51.72312vh 0px white, 91.18708vw -47.92432vh 0px white, 65.91173vw 60.78126vh 0px white, 28.81089vw 124.28276vh 0px white, 76.238vw 83.91073vh 0px white, 52.32463vw 63.86802vh 0px white, 45.78465vw 8.09145vh 0px white, 83.26419vw 21.99336vh 0px white, 78.16469vw -49.04048vh 0px white, 89.00753vw -104.30479vh 0px white, 93.51705vw 98.51855vh 0px white, 16.88359vw 63.36077vh 0px white, 16.54479vw 249.20154vh 0px white, 18.11048vw 130.66518vh 0px white, 36.49217vw 11.21967vh 0px white, 64.4099vw 38.99929vh 0px white, 49.31677vw 100.63931vh 0px white, 81.28982vw -62.78671vh 0px white;
+        }
+        50% {
+            box-shadow: 65.39861vw 99.29627vh 0px white, 4.77206vw 94.8322vh 0px white, 24.53243vw 5.9878vh 0px white, 90.49211vw -112.26387vh 0px white, 67.51205vw 11.85493vh 0px white, 27.97025vw 47.49419vh 0px white, 76.11731vw 16.06921vh 0px white, 52.2578vw 13.9961vh 0px white, 44.28761vw -53.51681vh 0px white, 82.43703vw -48.70281vh 0px white, 78.62905vw -102.36481vh 0px white, 89.15441vw -175.64313vh 0px white, 95.32257vw 55.27962vh 0px white, 16.78815vw -10.64884vh 0px white, 16.70048vw 206.81994vh 0px white, 17.46426vw 69.21294vh 0px white, 35.62861vw -59.40959vh 0px white, 64.64789vw -10.21876vh 0px white, 48.36345vw 27.64vh 0px white, 80.54015vw -142.49834vh 0px white;
+        }
+        60% {
+            box-shadow: 66.5812vw 51.95421vh 0px white, 3.98937vw 24.24303vh 0px white, 23.71587vw -39.74751vh 0px white, 89.79714vw -176.60341vh 0px white, 69.11237vw -37.0714vh 0px white, 27.12961vw -29.29437vh 0px white, 75.99662vw -51.7723vh 0px white, 52.32463vw -35.87582vh 0px white, 42.79057vw -115.12506vh 0px white, 81.60988vw -119.39898vh 0px white, 79.0934vw -155.68914vh 0px white, 89.30128vw -246.98148vh 0px white, 97.12809vw 12.04069vh 0px white, 16.6927vw -84.65845vh 0px white, 16.85617vw 164.43835vh 0px white, 16.81804vw 7.76069vh 0px white, 36.49217vw -130.03886vh 0px white, 64.88587vw -59.43681vh 0px white, 49.31677vw -45.35931vh 0px white, 79.79048vw -222.20998vh 0px white;
+        }
+        70% {
+            box-shadow: 67.7638vw 4.61214vh 0px white, 3.20667vw -46.34614vh 0px white, 24.53243vw -85.48283vh 0px white, 89.10217vw -240.94296vh 0px white, 70.71269vw -85.99773vh 0px white, 26.28897vw -106.08294vh 0px white, 75.87593vw -119.61382vh 0px white, 52.39147vw -85.74774vh 0px white, 41.29354vw -176.73331vh 0px white, 80.78272vw -190.09515vh 0px white, 79.55776vw -209.01346vh 0px white, 89.44815vw -318.31983vh 0px white, 98.93362vw -31.19824vh 0px white, 16.59726vw -158.66807vh 0px white, 17.01185vw 122.05675vh 0px white, 16.17182vw -53.69156vh 0px white, 37.35573vw -200.66813vh 0px white, 65.12386vw -108.65486vh 0px white, 50.27008vw -118.35862vh 0px white, 79.04081vw -301.92162vh 0px white;
+        }
+        80% {
+            box-shadow: 68.94639vw -42.72992vh 0px white, 2.42398vw -116.93532vh 0px white, 25.34899vw -131.21815vh 0px white, 88.4072vw -305.28251vh 0px white, 72.313vw -134.92406vh 0px white, 25.44833vw -182.8715vh 0px white, 75.75524vw -187.45534vh 0px white, 52.45831vw -135.61966vh 0px white, 39.7965vw -238.34157vh 0px white, 81.60988vw -260.79132vh 0px white, 80.02212vw -262.33779vh 0px white, 89.59503vw -389.65818vh 0px white, 100.73914vw -74.43717vh 0px white, 16.50182vw -232.67768vh 0px white, 17.16754vw 79.67515vh 0px white, 15.5256vw -115.1438vh 0px white, 36.49217vw -271.2974vh 0px white, 65.36185vw -157.87291vh 0px white, 51.2234vw -191.35794vh 0px white, 78.29113vw -381.63325vh 0px white;
+        }
+        90% {
+            box-shadow: 70.12899vw -90.07198vh 0px white, 1.64128vw -187.52449vh 0px white, 26.16554vw -176.95347vh 0px white, 87.71223vw -369.62205vh 0px white, 73.91332vw -183.85039vh 0px white, 24.60769vw -259.66007vh 0px white, 75.63456vw -255.29685vh 0px white, 52.52515vw -185.49158vh 0px white, 38.29946vw -299.94982vh 0px white, 82.43703vw -331.48749vh 0px white, 80.48648vw -315.66212vh 0px white, 89.7419vw -460.99653vh 0px white, 102.54466vw -117.6761vh 0px white, 16.40638vw -306.6873vh 0px white, 17.32323vw 37.29355vh 0px white, 14.87938vw -176.59605vh 0px white, 35.62861vw -341.92666vh 0px white, 65.59983vw -207.09096vh 0px white, 50.27008vw -264.35725vh 0px white, 77.54146vw -461.34489vh 0px white;
+        }
+        100% {
+            box-shadow: 71.31158vw -137.41405vh 0px white, 0.85859vw -258.11366vh 0px white, 26.9821vw -222.68878vh 0px white, 87.01726vw -433.9616vh 0px white, 75.51364vw -232.77672vh 0px white, 23.76705vw -336.44863vh 0px white, 75.51387vw -323.13837vh 0px white, 52.59198vw -235.36349vh 0px white, 36.80243vw -361.55808vh 0px white, 83.26419vw -402.18366vh 0px white, 80.95083vw -368.98645vh 0px white, 89.88877vw -532.33487vh 0px white, 104.35019vw -160.91503vh 0px white, 16.31093vw -380.69691vh 0px white, 17.47892vw -5.08805vh 0px white, 15.5256vw -238.0483vh 0px white, 34.76506vw -412.55593vh 0px white, 65.83782vw -256.30901vh 0px white, 51.2234vw -337.35656vh 0px white, 76.79179vw -541.05653vh 0px white;
+        }
+    }
+    
+    @keyframes test {
+        0% {
+            box-shadow: 60.66823vw 288.66453vh 0px white, 1.64128vw 377.18888vh 0px white, 24.53243vw 188.92907vh 0px white, 93.27198vw 145.09432vh 0px white, 61.11078vw 207.56025vh 0px white, 29.65153vw 354.64845vh 0px white, 76.60006vw 287.43528vh 0px white, 52.52515vw 213.48378vh 0px white, 44.28761vw 192.91621vh 0px white, 85.74565vw 234.08187vh 0px white, 76.77162vw 110.93251vh 0px white, 88.56691vw 109.71026vh 0px white, 88.10048vw 228.23535vh 0px white, 17.16992vw 285.38962vh 0px white, 17.01185vw 376.34634vh 0px white, 18.7567vw 315.02193vh 0px white, 39.08284vw 223.10748vh 0px white, 64.17192vw 186.65344vh 0px white, 52.17672vw 319.63724vh 0px white, 83.53883vw 176.3482vh 0px white;
+        }
+        10% {
+            box-shadow: 60.66823vw 288.66453vh 0px white, 1.64128vw 377.18888vh 0px white, 24.53243vw 188.92907vh 0px white, 93.27198vw 145.09432vh 0px white, 61.11078vw 207.56025vh 0px white, 29.65153vw 354.64845vh 0px white, 76.60006vw 287.43528vh 0px white, 52.52515vw 213.48378vh 0px white, 44.28761vw 192.91621vh 0px white, 85.74565vw 234.08187vh 0px white, 76.77162vw 110.93251vh 0px white, 88.56691vw 109.71026vh 0px white, 88.10048vw 228.23535vh 0px white, 17.16992vw 285.38962vh 0px white, 17.01185vw 376.34634vh 0px white, 18.7567vw 315.02193vh 0px white, 39.08284vw 223.10748vh 0px white, 64.17192vw 186.65344vh 0px white, 52.17672vw 319.63724vh 0px white, 83.53883vw 176.3482vh 0px white;
+        }
+        20% {
+            box-shadow: 61.85082vw 241.32247vh 0px white, 2.42398vw 306.59971vh 0px white, 25.34899vw 143.19376vh 0px white, 92.57701vw 80.75478vh 0px white, 62.7111vw 158.63392vh 0px white, 30.49218vw 277.85989vh 0px white, 76.47937vw 219.59376vh 0px white, 52.45831vw 163.61186vh 0px white, 45.78465vw 131.30796vh 0px white, 84.9185vw 163.3857vh 0px white, 77.23597vw 57.60818vh 0px white, 88.71379vw 38.37191vh 0px white, 89.906vw 184.99642vh 0px white, 17.07447vw 211.38vh 0px white, 16.85617vw 333.96474vh 0px white, 18.11048vw 253.56968vh 0px white, 38.21928vw 152.47821vh 0px white, 63.93393vw 137.43539vh 0px white, 51.2234vw 246.63793vh 0px white, 82.78916vw 96.63657vh 0px white;
+        }
+        30% {
+            box-shadow: 63.03342vw 193.9804vh 0px white, 3.20667vw 236.01054vh 0px white, 26.16554vw 97.45844vh 0px white, 91.88204vw 16.41523vh 0px white, 64.31142vw 109.70759vh 0px white, 29.65153vw 201.07132vh 0px white, 76.35868vw 151.75225vh 0px white, 52.39147vw 113.73994vh 0px white, 47.28169vw 69.6997vh 0px white, 84.09134vw 92.68953vh 0px white, 77.70033vw 4.28385vh 0px white, 88.86066vw -32.96644vh 0px white, 91.71152vw 141.75748vh 0px white, 16.97903vw 137.37039vh 0px white, 16.70048vw 291.58314vh 0px white, 18.7567vw 192.11743vh 0px white, 37.35573vw 81.84894vh 0px white, 64.17192vw 88.21734vh 0px white, 50.27008vw 173.63862vh 0px white, 82.03949vw 16.92493vh 0px white;
+        }
+        40% {
+            box-shadow: 64.21601vw 146.63834vh 0px white, 3.98937vw 165.42137vh 0px white, 25.34899vw 51.72312vh 0px white, 91.18708vw -47.92432vh 0px white, 65.91173vw 60.78126vh 0px white, 28.81089vw 124.28276vh 0px white, 76.238vw 83.91073vh 0px white, 52.32463vw 63.86802vh 0px white, 45.78465vw 8.09145vh 0px white, 83.26419vw 21.99336vh 0px white, 78.16469vw -49.04048vh 0px white, 89.00753vw -104.30479vh 0px white, 93.51705vw 98.51855vh 0px white, 16.88359vw 63.36077vh 0px white, 16.54479vw 249.20154vh 0px white, 18.11048vw 130.66518vh 0px white, 36.49217vw 11.21967vh 0px white, 64.4099vw 38.99929vh 0px white, 49.31677vw 100.63931vh 0px white, 81.28982vw -62.78671vh 0px white;
+        }
+        50% {
+            box-shadow: 65.39861vw 99.29627vh 0px white, 4.77206vw 94.8322vh 0px white, 24.53243vw 5.9878vh 0px white, 90.49211vw -112.26387vh 0px white, 67.51205vw 11.85493vh 0px white, 27.97025vw 47.49419vh 0px white, 76.11731vw 16.06921vh 0px white, 52.2578vw 13.9961vh 0px white, 44.28761vw -53.51681vh 0px white, 82.43703vw -48.70281vh 0px white, 78.62905vw -102.36481vh 0px white, 89.15441vw -175.64313vh 0px white, 95.32257vw 55.27962vh 0px white, 16.78815vw -10.64884vh 0px white, 16.70048vw 206.81994vh 0px white, 17.46426vw 69.21294vh 0px white, 35.62861vw -59.40959vh 0px white, 64.64789vw -10.21876vh 0px white, 48.36345vw 27.64vh 0px white, 80.54015vw -142.49834vh 0px white;
+        }
+        60% {
+            box-shadow: 66.5812vw 51.95421vh 0px white, 3.98937vw 24.24303vh 0px white, 23.71587vw -39.74751vh 0px white, 89.79714vw -176.60341vh 0px white, 69.11237vw -37.0714vh 0px white, 27.12961vw -29.29437vh 0px white, 75.99662vw -51.7723vh 0px white, 52.32463vw -35.87582vh 0px white, 42.79057vw -115.12506vh 0px white, 81.60988vw -119.39898vh 0px white, 79.0934vw -155.68914vh 0px white, 89.30128vw -246.98148vh 0px white, 97.12809vw 12.04069vh 0px white, 16.6927vw -84.65845vh 0px white, 16.85617vw 164.43835vh 0px white, 16.81804vw 7.76069vh 0px white, 36.49217vw -130.03886vh 0px white, 64.88587vw -59.43681vh 0px white, 49.31677vw -45.35931vh 0px white, 79.79048vw -222.20998vh 0px white;
+        }
+        70% {
+            box-shadow: 67.7638vw 4.61214vh 0px white, 3.20667vw -46.34614vh 0px white, 24.53243vw -85.48283vh 0px white, 89.10217vw -240.94296vh 0px white, 70.71269vw -85.99773vh 0px white, 26.28897vw -106.08294vh 0px white, 75.87593vw -119.61382vh 0px white, 52.39147vw -85.74774vh 0px white, 41.29354vw -176.73331vh 0px white, 80.78272vw -190.09515vh 0px white, 79.55776vw -209.01346vh 0px white, 89.44815vw -318.31983vh 0px white, 98.93362vw -31.19824vh 0px white, 16.59726vw -158.66807vh 0px white, 17.01185vw 122.05675vh 0px white, 16.17182vw -53.69156vh 0px white, 37.35573vw -200.66813vh 0px white, 65.12386vw -108.65486vh 0px white, 50.27008vw -118.35862vh 0px white, 79.04081vw -301.92162vh 0px white;
+        }
+        80% {
+            box-shadow: 68.94639vw -42.72992vh 0px white, 2.42398vw -116.93532vh 0px white, 25.34899vw -131.21815vh 0px white, 88.4072vw -305.28251vh 0px white, 72.313vw -134.92406vh 0px white, 25.44833vw -182.8715vh 0px white, 75.75524vw -187.45534vh 0px white, 52.45831vw -135.61966vh 0px white, 39.7965vw -238.34157vh 0px white, 81.60988vw -260.79132vh 0px white, 80.02212vw -262.33779vh 0px white, 89.59503vw -389.65818vh 0px white, 100.73914vw -74.43717vh 0px white, 16.50182vw -232.67768vh 0px white, 17.16754vw 79.67515vh 0px white, 15.5256vw -115.1438vh 0px white, 36.49217vw -271.2974vh 0px white, 65.36185vw -157.87291vh 0px white, 51.2234vw -191.35794vh 0px white, 78.29113vw -381.63325vh 0px white;
+        }
+        90% {
+            box-shadow: 70.12899vw -90.07198vh 0px white, 1.64128vw -187.52449vh 0px white, 26.16554vw -176.95347vh 0px white, 87.71223vw -369.62205vh 0px white, 73.91332vw -183.85039vh 0px white, 24.60769vw -259.66007vh 0px white, 75.63456vw -255.29685vh 0px white, 52.52515vw -185.49158vh 0px white, 38.29946vw -299.94982vh 0px white, 82.43703vw -331.48749vh 0px white, 80.48648vw -315.66212vh 0px white, 89.7419vw -460.99653vh 0px white, 102.54466vw -117.6761vh 0px white, 16.40638vw -306.6873vh 0px white, 17.32323vw 37.29355vh 0px white, 14.87938vw -176.59605vh 0px white, 35.62861vw -341.92666vh 0px white, 65.59983vw -207.09096vh 0px white, 50.27008vw -264.35725vh 0px white, 77.54146vw -461.34489vh 0px white;
+        }
+        100% {
+            box-shadow: 71.31158vw -137.41405vh 0px white, 0.85859vw -258.11366vh 0px white, 26.9821vw -222.68878vh 0px white, 87.01726vw -433.9616vh 0px white, 75.51364vw -232.77672vh 0px white, 23.76705vw -336.44863vh 0px white, 75.51387vw -323.13837vh 0px white, 52.59198vw -235.36349vh 0px white, 36.80243vw -361.55808vh 0px white, 83.26419vw -402.18366vh 0px white, 80.95083vw -368.98645vh 0px white, 89.88877vw -532.33487vh 0px white, 104.35019vw -160.91503vh 0px white, 16.31093vw -380.69691vh 0px white, 17.47892vw -5.08805vh 0px white, 15.5256vw -238.0483vh 0px white, 34.76506vw -412.55593vh 0px white, 65.83782vw -256.30901vh 0px white, 51.2234vw -337.35656vh 0px white, 76.79179vw -541.05653vh 0px white;
+        }
+    }
+    
+    @-webkit-keyframes test2 {
+        0% {
+            box-shadow: 76.72929vw 351.01418vh 0px white, 62.08588vw 382.6999vh 0px white, 82.26884vw 256.61287vh 0px white, 24.31309vw 211.93247vh 0px white, 11.40948vw 223.91502vh 0px white, 30.14108vw 205.80175vh 0px white, 19.82048vw 398.58682vh 0px white, 15.93659vw 119.64376vh 0px white, 37.64945vw 311.76635vh 0px white, 76.48713vw 185.38235vh 0px white, 82.54188vw 291.45258vh 0px white, 43.01122vw 153.59778vh 0px white, 86.07734vw 257.93451vh 0px white, 31.08237vw 125.86602vh 0px white, 91.44282vw 229.41936vh 0px white, 77.74277vw 298.57451vh 0px white, 17.69497vw 147.75909vh 0px white, 76.73835vw 399.16521vh 0px white, 74.8129vw 202.71116vh 0px white, 56.81234vw 111.65064vh 0px white;
+        }
+        10% {
+            box-shadow: 76.72929vw 351.01418vh 0px white, 62.08588vw 382.6999vh 0px white, 82.26884vw 256.61287vh 0px white, 24.31309vw 211.93247vh 0px white, 11.40948vw 223.91502vh 0px white, 30.14108vw 205.80175vh 0px white, 19.82048vw 398.58682vh 0px white, 15.93659vw 119.64376vh 0px white, 37.64945vw 311.76635vh 0px white, 76.48713vw 185.38235vh 0px white, 82.54188vw 291.45258vh 0px white, 43.01122vw 153.59778vh 0px white, 86.07734vw 257.93451vh 0px white, 31.08237vw 125.86602vh 0px white, 91.44282vw 229.41936vh 0px white, 77.74277vw 298.57451vh 0px white, 17.69497vw 147.75909vh 0px white, 76.73835vw 399.16521vh 0px white, 74.8129vw 202.71116vh 0px white, 56.81234vw 111.65064vh 0px white;
+        }
+        20% {
+            box-shadow: 77.72438vw 280.40871vh 0px white, 60.54536vw 331.97755vh 0px white, 81.07054vw 200.56051vh 0px white, 23.85449vw 155.04146vh 0px white, 9.62359vw 148.66081vh 0px white, 31.04671vw 146.72923vh 0px white, 19.74381vw 318.84648vh 0px white, 16.35182vw 65.31378vh 0px white, 36.27406vw 266.97361vh 0px white, 78.30129vw 110.91794vh 0px white, 82.45352vw 232.49934vh 0px white, 41.35083vw 74.39599vh 0px white, 85.92118vw 217.00331vh 0px white, 29.41714vw 46.35862vh 0px white, 92.21894vw 182.068vh 0px white, 76.72075vw 244.01477vh 0px white, 16.80954vw 76.48732vh 0px white, 78.71697vw 356.38198vh 0px white, 75.76974vw 156.47533vh 0px white, 56.4773vw 60.113vh 0px white;
+        }
+        30% {
+            box-shadow: 78.71947vw 209.80324vh 0px white, 59.00484vw 281.2552vh 0px white, 79.87224vw 144.50815vh 0px white, 23.39589vw 98.15045vh 0px white, 7.8377vw 73.40661vh 0px white, 31.95235vw 87.65671vh 0px white, 19.66714vw 239.10614vh 0px white, 16.76705vw 10.9838vh 0px white, 34.89867vw 222.18087vh 0px white, 76.48713vw 36.45353vh 0px white, 82.36517vw 173.54611vh 0px white, 39.69044vw -4.8058vh 0px white, 86.07734vw 176.07211vh 0px white, 27.75191vw -33.14877vh 0px white, 92.99506vw 134.71664vh 0px white, 75.69873vw 189.45502vh 0px white, 15.9241vw 5.21555vh 0px white, 80.6956vw 313.59876vh 0px white, 76.72658vw 110.2395vh 0px white, 56.14226vw 8.57537vh 0px white;
+        }
+        40% {
+            box-shadow: 79.71456vw 139.19777vh 0px white, 57.46431vw 230.53285vh 0px white, 81.07054vw 88.45579vh 0px white, 22.93729vw 41.25945vh 0px white, 9.62359vw -1.8476vh 0px white, 32.85798vw 28.58419vh 0px white, 19.74381vw 159.3658vh 0px white, 17.18228vw -43.34619vh 0px white, 33.52328vw 177.38813vh 0px white, 74.67298vw -38.01089vh 0px white, 82.45352vw 114.59287vh 0px white, 38.03005vw -84.00759vh 0px white, 86.2335vw 135.1409vh 0px white, 26.08668vw -112.65617vh 0px white, 93.77118vw 87.36528vh 0px white, 74.67671vw 134.89527vh 0px white, 15.03867vw -66.05622vh 0px white, 82.67423vw 270.81553vh 0px white, 77.68342vw 64.00366vh 0px white, 55.80722vw -42.96226vh 0px white;
+        }
+        50% {
+            box-shadow: 80.70965vw 68.59231vh 0px white, 55.92379vw 179.81051vh 0px white, 82.26884vw 32.40343vh 0px white, 22.47869vw -15.63156vh 0px white, 11.40948vw -77.10181vh 0px white, 33.76361vw -30.48833vh 0px white, 19.82048vw 79.62546vh 0px white, 17.59751vw -97.67617vh 0px white, 32.14788vw 132.59539vh 0px white, 72.85882vw -112.4753vh 0px white, 82.54188vw 55.63964vh 0px white, 36.36967vw -163.20938vh 0px white, 86.38966vw 94.2097vh 0px white, 24.42145vw -192.16356vh 0px white, 94.54729vw 40.01392vh 0px white, 75.69873vw 80.33553vh 0px white, 14.15324vw -137.328vh 0px white, 84.65285vw 228.03231vh 0px white, 78.64026vw 17.76783vh 0px white, 55.47217vw -94.49989vh 0px white;
+        }
+        60% {
+            box-shadow: 81.70474vw -2.01316vh 0px white, 54.38327vw 129.08816vh 0px white, 83.46713vw -23.64893vh 0px white, 22.02009vw -72.52257vh 0px white, 9.62359vw -152.35601vh 0px white, 34.66924vw -89.56085vh 0px white, 19.89715vw -0.11488vh 0px white, 18.01273vw -152.00615vh 0px white, 33.52328vw 87.80266vh 0px white, 71.04466vw -186.93971vh 0px white, 82.63023vw -3.3136vh 0px white, 34.70928vw -242.41117vh 0px white, 86.54582vw 53.2785vh 0px white, 22.75622vw -271.67096vh 0px white, 93.77118vw -7.33744vh 0px white, 76.72075vw 25.77578vh 0px white, 13.26781vw -208.59977vh 0px white, 86.63148vw 185.24909vh 0px white, 79.5971vw -28.468vh 0px white, 55.13713vw -146.03752vh 0px white;
+        }
+        70% {
+            box-shadow: 80.70965vw -72.61863vh 0px white, 52.84275vw 78.36581vh 0px white, 84.66543vw -79.7013vh 0px white, 21.56149vw -129.41358vh 0px white, 7.8377vw -227.61022vh 0px white, 35.57487vw -148.63337vh 0px white, 19.97382vw -79.85522vh 0px white, 18.42796vw -206.33613vh 0px white, 34.89867vw 43.00992vh 0px white, 69.23051vw -261.40413vh 0px white, 82.71859vw -62.26683vh 0px white, 33.04889vw -321.61295vh 0px white, 86.70198vw 12.3473vh 0px white, 21.09099vw -351.17835vh 0px white, 94.54729vw -54.6888vh 0px white, 77.74277vw -28.78397vh 0px white, 12.38237vw -279.87154vh 0px white, 88.6101vw 142.46586vh 0px white, 80.55394vw -74.70383vh 0px white, 54.80209vw -197.57515vh 0px white;
+        }
+        80% {
+            box-shadow: 79.71456vw -143.2241vh 0px white, 51.30223vw 27.64346vh 0px white, 83.46713vw -135.75366vh 0px white, 21.10289vw -186.30459vh 0px white, 6.0518vw -302.86442vh 0px white, 34.66924vw -207.70589vh 0px white, 20.05049vw -159.59556vh 0px white, 18.84319vw -260.66611vh 0px white, 36.27406vw -1.78282vh 0px white, 67.41635vw -335.86854vh 0px white, 82.80694vw -121.22007vh 0px white, 31.3885vw -400.81474vh 0px white, 86.85815vw -28.5839vh 0px white, 19.42576vw -430.68575vh 0px white, 95.32341vw -102.04016vh 0px white, 78.76479vw -83.34372vh 0px white, 11.49694vw -351.14331vh 0px white, 90.58873vw 99.68264vh 0px white, 81.51079vw -120.93966vh 0px white, 54.46705vw -249.11279vh 0px white;
+        }
+        90% {
+            box-shadow: 80.70965vw -213.82957vh 0px white, 49.7617vw -23.07889vh 0px white, 82.26884vw -191.80602vh 0px white, 20.64429vw -243.1956vh 0px white, 4.26591vw -378.11863vh 0px white, 35.57487vw -266.77841vh 0px white, 20.12716vw -239.3359vh 0px white, 19.25842vw -314.99609vh 0px white, 37.64945vw -46.57556vh 0px white, 65.6022vw -410.33295vh 0px white, 82.8953vw -180.1733vh 0px white, 33.04889vw -480.01653vh 0px white, 87.01431vw -69.5151vh 0px white, 17.76053vw -510.19314vh 0px white, 96.09953vw -149.39152vh 0px white, 79.78681vw -137.90346vh 0px white, 10.61151vw -422.41508vh 0px white, 92.56736vw 56.89941vh 0px white, 82.46763vw -167.17549vh 0px white, 54.132vw -300.65042vh 0px white;
+        }
+        100% {
+            box-shadow: 81.70474vw -284.43504vh 0px white, 48.22118vw -73.80124vh 0px white, 81.07054vw -247.85838vh 0px white, 20.18569vw -300.0866vh 0px white, 2.48001vw -453.37284vh 0px white, 36.4805vw -325.85093vh 0px white, 20.05049vw -319.07624vh 0px white, 19.67365vw -369.32607vh 0px white, 39.02485vw -91.3683vh 0px white, 63.78804vw -484.79737vh 0px white, 82.80694vw -239.12654vh 0px white, 34.70928vw -559.21832vh 0px white, 87.17047vw -110.44631vh 0px white, 16.0953vw -589.70054vh 0px white, 96.87565vw -196.74288vh 0px white, 80.80884vw -192.46321vh 0px white, 11.49694vw -493.68685vh 0px white, 94.54598vw 14.11619vh 0px white, 83.42447vw -213.41132vh 0px white, 53.79696vw -352.18805vh 0px white;
+        }
+    }
+    
+    @keyframes test2 {
+        0% {
+            box-shadow: 76.72929vw 351.01418vh 0px white, 62.08588vw 382.6999vh 0px white, 82.26884vw 256.61287vh 0px white, 24.31309vw 211.93247vh 0px white, 11.40948vw 223.91502vh 0px white, 30.14108vw 205.80175vh 0px white, 19.82048vw 398.58682vh 0px white, 15.93659vw 119.64376vh 0px white, 37.64945vw 311.76635vh 0px white, 76.48713vw 185.38235vh 0px white, 82.54188vw 291.45258vh 0px white, 43.01122vw 153.59778vh 0px white, 86.07734vw 257.93451vh 0px white, 31.08237vw 125.86602vh 0px white, 91.44282vw 229.41936vh 0px white, 77.74277vw 298.57451vh 0px white, 17.69497vw 147.75909vh 0px white, 76.73835vw 399.16521vh 0px white, 74.8129vw 202.71116vh 0px white, 56.81234vw 111.65064vh 0px white;
+        }
+        10% {
+            box-shadow: 76.72929vw 351.01418vh 0px white, 62.08588vw 382.6999vh 0px white, 82.26884vw 256.61287vh 0px white, 24.31309vw 211.93247vh 0px white, 11.40948vw 223.91502vh 0px white, 30.14108vw 205.80175vh 0px white, 19.82048vw 398.58682vh 0px white, 15.93659vw 119.64376vh 0px white, 37.64945vw 311.76635vh 0px white, 76.48713vw 185.38235vh 0px white, 82.54188vw 291.45258vh 0px white, 43.01122vw 153.59778vh 0px white, 86.07734vw 257.93451vh 0px white, 31.08237vw 125.86602vh 0px white, 91.44282vw 229.41936vh 0px white, 77.74277vw 298.57451vh 0px white, 17.69497vw 147.75909vh 0px white, 76.73835vw 399.16521vh 0px white, 74.8129vw 202.71116vh 0px white, 56.81234vw 111.65064vh 0px white;
+        }
+        20% {
+            box-shadow: 77.72438vw 280.40871vh 0px white, 60.54536vw 331.97755vh 0px white, 81.07054vw 200.56051vh 0px white, 23.85449vw 155.04146vh 0px white, 9.62359vw 148.66081vh 0px white, 31.04671vw 146.72923vh 0px white, 19.74381vw 318.84648vh 0px white, 16.35182vw 65.31378vh 0px white, 36.27406vw 266.97361vh 0px white, 78.30129vw 110.91794vh 0px white, 82.45352vw 232.49934vh 0px white, 41.35083vw 74.39599vh 0px white, 85.92118vw 217.00331vh 0px white, 29.41714vw 46.35862vh 0px white, 92.21894vw 182.068vh 0px white, 76.72075vw 244.01477vh 0px white, 16.80954vw 76.48732vh 0px white, 78.71697vw 356.38198vh 0px white, 75.76974vw 156.47533vh 0px white, 56.4773vw 60.113vh 0px white;
+        }
+        30% {
+            box-shadow: 78.71947vw 209.80324vh 0px white, 59.00484vw 281.2552vh 0px white, 79.87224vw 144.50815vh 0px white, 23.39589vw 98.15045vh 0px white, 7.8377vw 73.40661vh 0px white, 31.95235vw 87.65671vh 0px white, 19.66714vw 239.10614vh 0px white, 16.76705vw 10.9838vh 0px white, 34.89867vw 222.18087vh 0px white, 76.48713vw 36.45353vh 0px white, 82.36517vw 173.54611vh 0px white, 39.69044vw -4.8058vh 0px white, 86.07734vw 176.07211vh 0px white, 27.75191vw -33.14877vh 0px white, 92.99506vw 134.71664vh 0px white, 75.69873vw 189.45502vh 0px white, 15.9241vw 5.21555vh 0px white, 80.6956vw 313.59876vh 0px white, 76.72658vw 110.2395vh 0px white, 56.14226vw 8.57537vh 0px white;
+        }
+        40% {
+            box-shadow: 79.71456vw 139.19777vh 0px white, 57.46431vw 230.53285vh 0px white, 81.07054vw 88.45579vh 0px white, 22.93729vw 41.25945vh 0px white, 9.62359vw -1.8476vh 0px white, 32.85798vw 28.58419vh 0px white, 19.74381vw 159.3658vh 0px white, 17.18228vw -43.34619vh 0px white, 33.52328vw 177.38813vh 0px white, 74.67298vw -38.01089vh 0px white, 82.45352vw 114.59287vh 0px white, 38.03005vw -84.00759vh 0px white, 86.2335vw 135.1409vh 0px white, 26.08668vw -112.65617vh 0px white, 93.77118vw 87.36528vh 0px white, 74.67671vw 134.89527vh 0px white, 15.03867vw -66.05622vh 0px white, 82.67423vw 270.81553vh 0px white, 77.68342vw 64.00366vh 0px white, 55.80722vw -42.96226vh 0px white;
+        }
+        50% {
+            box-shadow: 80.70965vw 68.59231vh 0px white, 55.92379vw 179.81051vh 0px white, 82.26884vw 32.40343vh 0px white, 22.47869vw -15.63156vh 0px white, 11.40948vw -77.10181vh 0px white, 33.76361vw -30.48833vh 0px white, 19.82048vw 79.62546vh 0px white, 17.59751vw -97.67617vh 0px white, 32.14788vw 132.59539vh 0px white, 72.85882vw -112.4753vh 0px white, 82.54188vw 55.63964vh 0px white, 36.36967vw -163.20938vh 0px white, 86.38966vw 94.2097vh 0px white, 24.42145vw -192.16356vh 0px white, 94.54729vw 40.01392vh 0px white, 75.69873vw 80.33553vh 0px white, 14.15324vw -137.328vh 0px white, 84.65285vw 228.03231vh 0px white, 78.64026vw 17.76783vh 0px white, 55.47217vw -94.49989vh 0px white;
+        }
+        60% {
+            box-shadow: 81.70474vw -2.01316vh 0px white, 54.38327vw 129.08816vh 0px white, 83.46713vw -23.64893vh 0px white, 22.02009vw -72.52257vh 0px white, 9.62359vw -152.35601vh 0px white, 34.66924vw -89.56085vh 0px white, 19.89715vw -0.11488vh 0px white, 18.01273vw -152.00615vh 0px white, 33.52328vw 87.80266vh 0px white, 71.04466vw -186.93971vh 0px white, 82.63023vw -3.3136vh 0px white, 34.70928vw -242.41117vh 0px white, 86.54582vw 53.2785vh 0px white, 22.75622vw -271.67096vh 0px white, 93.77118vw -7.33744vh 0px white, 76.72075vw 25.77578vh 0px white, 13.26781vw -208.59977vh 0px white, 86.63148vw 185.24909vh 0px white, 79.5971vw -28.468vh 0px white, 55.13713vw -146.03752vh 0px white;
+        }
+        70% {
+            box-shadow: 80.70965vw -72.61863vh 0px white, 52.84275vw 78.36581vh 0px white, 84.66543vw -79.7013vh 0px white, 21.56149vw -129.41358vh 0px white, 7.8377vw -227.61022vh 0px white, 35.57487vw -148.63337vh 0px white, 19.97382vw -79.85522vh 0px white, 18.42796vw -206.33613vh 0px white, 34.89867vw 43.00992vh 0px white, 69.23051vw -261.40413vh 0px white, 82.71859vw -62.26683vh 0px white, 33.04889vw -321.61295vh 0px white, 86.70198vw 12.3473vh 0px white, 21.09099vw -351.17835vh 0px white, 94.54729vw -54.6888vh 0px white, 77.74277vw -28.78397vh 0px white, 12.38237vw -279.87154vh 0px white, 88.6101vw 142.46586vh 0px white, 80.55394vw -74.70383vh 0px white, 54.80209vw -197.57515vh 0px white;
+        }
+        80% {
+            box-shadow: 79.71456vw -143.2241vh 0px white, 51.30223vw 27.64346vh 0px white, 83.46713vw -135.75366vh 0px white, 21.10289vw -186.30459vh 0px white, 6.0518vw -302.86442vh 0px white, 34.66924vw -207.70589vh 0px white, 20.05049vw -159.59556vh 0px white, 18.84319vw -260.66611vh 0px white, 36.27406vw -1.78282vh 0px white, 67.41635vw -335.86854vh 0px white, 82.80694vw -121.22007vh 0px white, 31.3885vw -400.81474vh 0px white, 86.85815vw -28.5839vh 0px white, 19.42576vw -430.68575vh 0px white, 95.32341vw -102.04016vh 0px white, 78.76479vw -83.34372vh 0px white, 11.49694vw -351.14331vh 0px white, 90.58873vw 99.68264vh 0px white, 81.51079vw -120.93966vh 0px white, 54.46705vw -249.11279vh 0px white;
+        }
+        90% {
+            box-shadow: 80.70965vw -213.82957vh 0px white, 49.7617vw -23.07889vh 0px white, 82.26884vw -191.80602vh 0px white, 20.64429vw -243.1956vh 0px white, 4.26591vw -378.11863vh 0px white, 35.57487vw -266.77841vh 0px white, 20.12716vw -239.3359vh 0px white, 19.25842vw -314.99609vh 0px white, 37.64945vw -46.57556vh 0px white, 65.6022vw -410.33295vh 0px white, 82.8953vw -180.1733vh 0px white, 33.04889vw -480.01653vh 0px white, 87.01431vw -69.5151vh 0px white, 17.76053vw -510.19314vh 0px white, 96.09953vw -149.39152vh 0px white, 79.78681vw -137.90346vh 0px white, 10.61151vw -422.41508vh 0px white, 92.56736vw 56.89941vh 0px white, 82.46763vw -167.17549vh 0px white, 54.132vw -300.65042vh 0px white;
+        }
+        100% {
+            box-shadow: 81.70474vw -284.43504vh 0px white, 48.22118vw -73.80124vh 0px white, 81.07054vw -247.85838vh 0px white, 20.18569vw -300.0866vh 0px white, 2.48001vw -453.37284vh 0px white, 36.4805vw -325.85093vh 0px white, 20.05049vw -319.07624vh 0px white, 19.67365vw -369.32607vh 0px white, 39.02485vw -91.3683vh 0px white, 63.78804vw -484.79737vh 0px white, 82.80694vw -239.12654vh 0px white, 34.70928vw -559.21832vh 0px white, 87.17047vw -110.44631vh 0px white, 16.0953vw -589.70054vh 0px white, 96.87565vw -196.74288vh 0px white, 80.80884vw -192.46321vh 0px white, 11.49694vw -493.68685vh 0px white, 94.54598vw 14.11619vh 0px white, 83.42447vw -213.41132vh 0px white, 53.79696vw -352.18805vh 0px white;
+        }
+    }
+    
+    .bubbles {
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        position: relative;
+        background: transparent;
+    }
+    
+    .bubbles:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        top: 0px;
+        left: 0px;
+        opacity: 0.25;
+        -webkit-animation: test 60s linear infinite;
+        animation: test 60s linear infinite;
+    }
+    
+    .bubbles:after {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        border-radius: 100%;
+        top: 0px;
+        left: 0px;
+        opacity: 0.25;
+        -webkit-animation: test2 60s linear infinite;
+        animation: test2 60s linear infinite;
+    }
+</style>
+
+<body>
+    <div class="bubbles"></div>
+    <div class="container">
+        <div class="links">
+            <div class="link" data-display="New Game"></div>
+            <div class="link" data-display="Load Game"></div>
+            <div class="link" data-display="Options"></div>
+            <div class="link" data-display="Cinematic"></div>
+            <div class="link" data-display="Exit"></div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var links = document.querySelectorAll('.link')
+    console.log(links)
+    for (var i = 0; i < links.length; i++) {
+        var link = links[i]
+        addClass(link, i)
+    }
+
+    function addClass(link, o) {
+        console.log(link, o)
+        setTimeout(function() {
+            link.classList.add('demo')
+            removeClass(link)
+        }, o * 1000)
+    }
+
+    function removeClass(link) {
+        setTimeout(function() {
+            link.classList.remove('demo')
+        }, 1000)
+    }
+</script>
+
+</html>

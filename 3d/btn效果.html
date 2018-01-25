@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: #292929;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    body .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    
+    body .item {
+        position: relative;
+    }
+    
+    body .item:not(:last-child) {
+        margin-bottom: 2vh;
+        border-bottom: solid 1px #ecf0f1;
+    }
+    
+    body .title {
+        font-size: 8vh;
+        text-transform: uppercase;
+        color: #95a5a6;
+        margin: 0;
+    }
+    
+    body .title:before {
+        content: attr(data-title);
+        color: #ecf0f1;
+    }
+    
+    body .preview {
+        width: 100%;
+        height: 8vh;
+    }
+    
+    body .preview:before {
+        content: '';
+        background: #ecf0f1;
+    }
+    
+    body .preview:after {
+        color: #ecf0f1;
+        content: attr(data-preview);
+        font-size: 1.3vh;
+        line-height: 8vh;
+    }
+    
+    body .title,
+    body .preview {
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+    }
+    
+    body .title:before,
+    body .preview:before,
+    body .title:after,
+    body .preview:after {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: -webkit-clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transition: -webkit-clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transition: clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transition: clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955), -webkit-clip-path 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    
+    body .item--square .title:before,
+    body .item--square .preview:before {
+        -webkit-clip-path: polygon(0 0, 0 0, -50px 100%, 0 100%);
+        clip-path: polygon(0 0, 0 0, -50px 100%, 0 100%);
+    }
+    
+    body .item--square .title:hover:before,
+    body .item--square .preview:hover:before {
+        -webkit-clip-path: polygon(0 0, calc(100% + 50px) 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, calc(100% + 50px) 0, 100% 100%, 0 100%);
+    }
+    
+    body .item--circle .title:before,
+    body .item--circle .preview:before {
+        -webkit-clip-path: circle(0% at 0% 50%);
+        clip-path: circle(0% at 0% 50%);
+    }
+    
+    body .item--circle .title:hover:before,
+    body .item--circle .preview:hover:before {
+        -webkit-clip-path: circle(150% at 0% 50%);
+        clip-path: circle(150% at 0% 50%);
+    }
+    
+    body .item--triangle .title:before,
+    body .item--triangle .preview:before {
+        -webkit-clip-path: polygon(50% 100%, 0% calc(100% + 50px), 0% 200%, 100% 200%, 100% calc(100% + 50px));
+        clip-path: polygon(50% 100%, 0% calc(100% + 50px), 0% 200%, 100% 200%, 100% calc(100% + 50px));
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+    }
+    
+    body .item--triangle .title:hover:before,
+    body .item--triangle .preview:hover:before {
+        -webkit-clip-path: polygon(50% -50px, 0% 0%, 0% 100%, 100% 100%, 100% 0%);
+        clip-path: polygon(50% -50px, 0% 0%, 0% 100%, 100% 100%, 100% 0%);
+    }
+    
+    body .item--arrow .title:before,
+    body .item--arrow .preview:before {
+        -webkit-clip-path: polygon(-20px 0%, 0px 50%, -20px 100%, -60px 100%, -40px 50%, -60px 0%);
+        clip-path: polygon(-20px 0%, 0px 50%, -20px 100%, -60px 100%, -40px 50%, -60px 0%);
+        -webkit-transition-duration: 0s;
+        transition-duration: 0s;
+    }
+    
+    body .item--arrow .title:hover:before,
+    body .item--arrow .preview:hover:before {
+        -webkit-clip-path: polygon(calc(100% + 40px) 0%, calc(100% + 60px) 50%, calc(100% + 40px) 100%, 100% 100%, calc(100% + 20px) 50%, 100% 0%);
+        clip-path: polygon(calc(100% + 40px) 0%, calc(100% + 60px) 50%, calc(100% + 40px) 100%, 100% 100%, calc(100% + 20px) 50%, 100% 0%);
+        -webkit-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="item item--square">
+            <h1 data-title="Square" class="title">Square</h1>
+            <div data-preview="Square shape preview" class="preview"></div>
+        </div>
+        <div class="item item--circle">
+            <h1 data-title="Circle" class="title">Circle</h1>
+            <div data-preview="Circle shape preview" class="preview"></div>
+        </div>
+        <div class="item item--triangle">
+            <h1 data-title="Triangle" class="title">Triangle</h1>
+            <div data-preview="Triangle shape preview" class="preview"></div>
+        </div>
+        <div class="item item--arrow">
+            <h1 data-title="Arrow" class="title">Arrow</h1>
+            <div data-preview="Arrow shape preview" class="preview"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

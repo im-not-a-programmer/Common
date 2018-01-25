@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .folder {
+        display: inline-block;
+        position: relative;
+        height: 10em;
+        margin: 0 3em 5em 0;
+        width: 7.5em;
+    }
+    
+    .folder::before,
+    .folder::after {
+        border-radius: 0 2px 2px 0;
+        content: "";
+        display: block;
+        height: 100%;
+        padding-top: 2em;
+        position: absolute;
+        width: 100%;
+    }
+    
+    .folder::before {
+        background: #ffe9a0;
+        content: attr(title);
+        left: -1.2em;
+        top: 1.85em;
+        -webkit-transform: matrix(0.7, 0.5, 0, 1, 0, 0);
+        transform: matrix(0.7, 0.5, 0, 1, 0, 0);
+        z-index: 40;
+        vertical-align: middle;
+    }
+    
+    .folder::after {
+        background: #efcd67;
+        z-index: 10;
+    }
+    
+    .folder img {
+        position: absolute;
+    }
+    
+    .folder img:first-child {
+        left: 0.9em;
+        top: 2.1em;
+        -webkit-transform: matrix(0.8, 0.35, 0, 1.1, 0, 0);
+        transform: matrix(0.8, 0.35, 0, 1.1, 0, 0);
+        z-index: 30;
+    }
+    
+    .folder img:last-child {
+        left: 2em;
+        top: 1.5em;
+        -webkit-transform: matrix(1, 0.2, 0, 1.1, 0, 0);
+        transform: matrix(1, 0.2, 0, 1.1, 0, 0);
+        z-index: 20;
+    }
+</style>
+
+<body>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>CSS Folders</h1>
+                <div class="folder" title="My Photos"><img src="https://unsplash.it/90/120?image=1080" /><img src="https://unsplash.it/90/120?image=1074" /></div>
+                <div class="folder" title="Holidays"><img src="https://unsplash.it/90/120?image=1065" /><img src="https://unsplash.it/90/120?image=1064" /></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

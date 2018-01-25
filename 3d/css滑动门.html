@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    section {
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+section:first-child {
+  background-color: black;
+}
+section:nth-child(2) {
+  background-color: gray;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.fadein {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.fadein.lazyloaded {
+  opacity: 1;
+}
+
+.slider {
+  position: relative;
+  margin: 0 auto;
+  min-width: 18rem;
+  max-width: 60rem;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.5);
+}
+.slider .slide {
+  pointer-events: none;
+  display: block;
+}
+.slider .slide img {
+  display: block;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.slider .slide ~ .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.slider .slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+  pointer-events: initial;
+}
+.slider .slide:first-child:nth-last-child(2):before, .slider .slide:first-child:nth-last-child(2) ~ *:before {
+  width: 50%;
+}
+.slider .slide:first-child:nth-last-child(2) + * img {
+  -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+          clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+.slider .slide:first-child:nth-last-child(2) + *:before {
+  left: 50%;
+}
+.slider .slide:first-child:nth-last-child(3):before, .slider .slide:first-child:nth-last-child(3) ~ *:before {
+  width: 33.33333%;
+}
+.slider .slide:first-child:nth-last-child(3) + * img {
+  -webkit-clip-path: polygon(33.33333% 0, 66.66667% 0, 66.66667% 100%, 33.33333% 100%);
+          clip-path: polygon(33.33333% 0, 66.66667% 0, 66.66667% 100%, 33.33333% 100%);
+}
+.slider .slide:first-child:nth-last-child(3) + *:before {
+  left: 33.33333%;
+}
+.slider .slide:first-child:nth-last-child(3) + * + * img {
+  -webkit-clip-path: polygon(66.66667% 0, 100% 0, 100% 100%, 66.66667% 100%);
+          clip-path: polygon(66.66667% 0, 100% 0, 100% 100%, 66.66667% 100%);
+}
+.slider .slide:first-child:nth-last-child(3) + * + *:before {
+  left: 66.66667%;
+}
+.slider .slide:first-child:nth-last-child(4):before, .slider .slide:first-child:nth-last-child(4) ~ *:before {
+  width: 25%;
+}
+.slider .slide:first-child:nth-last-child(4) + * img {
+  -webkit-clip-path: polygon(25% 0, 50% 0, 50% 100%, 25% 100%);
+          clip-path: polygon(25% 0, 50% 0, 50% 100%, 25% 100%);
+}
+.slider .slide:first-child:nth-last-child(4) + *:before {
+  left: 25%;
+}
+.slider .slide:first-child:nth-last-child(4) + * + * img {
+  -webkit-clip-path: polygon(50% 0, 75% 0, 75% 100%, 50% 100%);
+          clip-path: polygon(50% 0, 75% 0, 75% 100%, 50% 100%);
+}
+.slider .slide:first-child:nth-last-child(4) + * + *:before {
+  left: 50%;
+}
+.slider .slide:first-child:nth-last-child(4) + * + * + * img {
+  -webkit-clip-path: polygon(75% 0, 100% 0, 100% 100%, 75% 100%);
+          clip-path: polygon(75% 0, 100% 0, 100% 100%, 75% 100%);
+}
+.slider .slide:first-child:nth-last-child(4) + * + * + *:before {
+  left: 75%;
+}
+.slider:hover .slide img {
+  -webkit-clip-path: polygon(0% 0, 0% 0, 0% 100%, 0% 100%) !important;
+          clip-path: polygon(0% 0, 0% 0, 0% 100%, 0% 100%) !important;
+}
+.slider .slide:hover img {
+  -webkit-clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%) !important;
+          clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%) !important;
+}
+.slider .slide:hover ~ .slide img {
+  -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%) !important;
+          clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%) !important;
+}
+
+</style>
+<body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.1/lazysizes.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.1/plugins/respimg/ls.respimg.min.js"></script>
+        <section>
+          <div class='slider arizona-dreams'>
+            <div class='slide'>
+              <img alt='' class='fadein lazyload' data-srcset='http://www.jq22.com/demo/codeimg201711231104/photo-1464800959563-472c0567132f.jpg' src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http://www.w3.org/2000/svg'%20viewBox%3D'0%200%20800%20600'%20%2F%3E">
+            </div>
+            <div class='slide'>
+              <img alt='' class='fadein lazyload' data-srcset='http://www.jq22.com/demo/codeimg201711231104/photo-1471982723806-9159d4ca27b7.jpg' src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http://www.w3.org/2000/svg'%20viewBox%3D'0%200%20800%20600'%20%2F%3E">
+            </div>
+            <div class='slide'>
+              <img alt='' class='fadein lazyload' data-srcset='http://www.jq22.com/demo/codeimg201711231104/photo-1501986953070-92859e72e642.jpg' src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http://www.w3.org/2000/svg'%20viewBox%3D'0%200%20800%20600'%20%2F%3E">
+            </div>
+            <div class='slide'>
+              <img alt='' class='fadein lazyload' data-srcset='http://www.jq22.com/demo/codeimg201711231104/photo-1507706132643-4b3dabbca8b3.jpg' src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http://www.w3.org/2000/svg'%20viewBox%3D'0%200%20800%20600'%20%2F%3E">
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class='slider before-after'>
+            <div class='slide'>
+              <img alt='' class='fadein lazyload' data-srcset='http://www.jq22.com/demo/codeimg201711231104/photoshop-face-before.jpg' src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http://www.w3.org/2000/svg'%20viewBox%3D'0%200%20661%20661'%20%2F%3E">
+            </div>
+            <div class='slide'>
+              <img alt='' class='fadein lazyload' data-srcset='http://www.jq22.com/demo/codeimg201711231104/photoshop-face-after.jpg' src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http://www.w3.org/2000/svg'%20viewBox%3D'0%200%20661%20661'%20%2F%3E">
+            </div>
+          </div>
+        </section>
+</body>
+</html>
