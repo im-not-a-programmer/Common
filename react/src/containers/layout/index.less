@@ -1,0 +1,122 @@
+@import url("../../assets/theme/config.less");
+
+:global #wrapper,
+:global #root {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  //&::after {
+  //  position: fixed;
+  //  top: 15/@baseWidth*100vw;
+  //  left: 80/@baseWidth*100vw;
+  //  z-index: 2000;
+  //
+  //  width: 144px/3;
+  //  height: 201px/3;
+  //
+  //  content: "";
+  //
+  //  background: url(srcDir/img/logoV.png) no-repeat left;
+  //  background-size: contain;
+  //}
+}
+
+.header,
+.nav {
+  position: fixed;
+  left: 0;
+  z-index: 110;
+}
+
+.header {
+  top: 0;
+  right: 0;
+
+  height: 74px;
+
+  background: darken(@default-nav-color, 2%);
+}
+
+.nav {
+  top: 74px;
+  bottom: 0;
+
+  width: @default-menuWidth;
+  //padding-top: @default-margin * 2.5;
+  overflow-y: auto;
+
+  color: @default-menuColor;
+  background-color: @default-nav-color;
+}
+.tag {
+  margin-right: 5px !important;
+
+  border-radius: 0;
+  height: 40px !important;
+  line-height: 40px !important;
+  border-top-left-radius: 2px!important;
+  border-top-right-radius: 2px!important;
+  border: 0!important;
+  margin-top: 32px !important;
+  background: #414141;
+  color:#f5f5f5;
+  &:hover {
+    a {
+      color:#f5f5f5 !important;
+    }
+  }
+  a {
+    color: #fff;
+  }
+}
+.onTag{
+  background: #f4f4f4;
+  color: #333;
+  a {
+    color: #333;
+  }
+  &:hover {
+    a {
+      color:#000 !important;
+    }
+  }
+}
+.menuTab {
+  position: fixed;
+  top: 0;
+  right: 150px;
+  left: 0;
+  z-index: 1000;
+
+  height: 74px;
+  padding: 2px 0;
+  margin-left: @default-menuWidth;
+}
+.content {
+  padding: @default-margin;
+  padding-top: @default-headerHeight + @default-menuTab + 10px;
+  margin-left: @default-menuWidth;
+  font-size:12px;
+  background-color: @c-f4;
+  > div {
+    background-color: @c-fff;
+  }
+  .img {
+    width: 100%;
+  }
+}
+
+:global .ant-breadcrumb {
+  padding: @default-margin / 2 0;
+
+  background-color: @c-f4;
+}
+:global .ant-table,
+:global .ant-table table {
+  border-radius: 0;
+}
+:global .ant-table-thead > tr > th {
+  background-color: @c-eee;
+}
